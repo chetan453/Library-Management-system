@@ -1,4 +1,7 @@
 {% extends 'library/navbar.html' %}
+{% block librarian %}
+    <a href="{% url 'librarian' %}" class="navbar-brand">&nbsp;Home</a>
+{% endblock %}
 
 {% block content %}
     <form action="" method="post">

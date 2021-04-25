@@ -1,4 +1,7 @@
 
+{% block librarian %}
+<a href="{% url 'librarian' %}" class="navbar-brand">&nbsp;Home</a>
+{% endblock %}
 
 <form action="" method="POST">
     {% csrf_token %}

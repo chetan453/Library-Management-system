@@ -205,7 +205,7 @@ def borrow(request,pk):
 
     return redirect('details',book.book_title)    
 
-
+@login_required(login_url='entry')
 def profile(request,username):
     user = User.objects.get(username = username)
     borrows = Borrowed.objects.filter(borrower=user)
@@ -215,7 +215,8 @@ def profile(request,username):
     }
     return render(request,'library/profile.html',context)
 
-
+@login_required(login_url='entry')
+@allowed_user('librarian')
 def updatestatus(request,pk):
     borrow = Borrowed.objects.get(id = pk)
     form = UpdateStatusForm(instance=borrow)
