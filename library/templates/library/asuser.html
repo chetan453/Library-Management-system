@@ -1,0 +1,18 @@
+<div>    
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" id="username" placeholder="Username"><br>
+        <input type="password" name="password" id="password" placeholder="password"><br> 
+        <input type="submit" value="login">
+    </form>
+    {%for message in messages%}
+       <p>{{message}}</p>
+    {%endfor%}
+    {% block login %}
+    
+    
+    <p>don't have account <a href="{%url 'signup' %}">Sign up</a></p>
+    {% endblock %}    
+
+</div>
+

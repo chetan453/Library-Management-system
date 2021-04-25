@@ -1,0 +1,32 @@
+{% extends 'library/navbar.html' %}
+
+{% block librarian %}
+<a href="{% url 'librarian' %}" class="navbar-brand">&nbsp;Home</a>
+{% endblock %}
+{% block content %}
+
+    <h1>{{user.username}}</h1>
+    <h2>Borrowing</h2>
+    <h4>Approve</h4>
+    {% for borrow in borrows %}
+        {% if borrow.status == '2' %}
+            <h4>{{borrow.book.book_title}}</h4>
+            <p>-{{borrow.book.author}}</p>
+        {% endif %}
+    {% endfor %} 
+    <h4>Pending</h4>
+    {% for borrow in borrows %}
+        {% if borrow.status == '1' %}
+            <h4>{{borrow.book.book_title}}</h4>
+            <p>-{{borrow.book.author}}</p>
+        {% endif %}
+    {% endfor %}
+    <h4>Reject</h4>
+    {% for borrow in borrows %}
+        {% if borrow.status == '3' %}
+            <h4>{{borrow.book.book_title}}</h4>
+            <p>-{{borrow.book.author}}</p>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+<div>
+    <h2>Login as</h2>
+    <div>
+        <a href="{% url 'as_user'%}">User</a>
+    </div>
+    <div>
+        <a href="{% url 'as_librarian' %}">Librarian</a>
+    </div>
+    {%for message in messages%}
+    <p>{{message}}</p>
+    {%endfor%}
+    <h3><a href="{% url 'signup' %}">Sign up as user</a></h3>
+    <h3><a href="{% url 'signup_librarian' %}">Sign up as librarian</a></h3>
+</div>

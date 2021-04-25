@@ -1,0 +1,14 @@
+{% extends 'library/navbar.html' %}
+
+{% block search %}
+<div class="container-fluid">
+    <div class="rows">
+        {% for book in searchvalue %}
+            <div class="col p-3 border bg-light">
+                <a href="{% url 'details' book.book_title %}"><h4>{{book.book_title}}</h4></a>
+                <p>-{{book.author}}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

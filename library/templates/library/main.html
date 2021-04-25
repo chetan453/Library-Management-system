@@ -1,0 +1,38 @@
+{% extends 'library/navbar.html' %}
+
+{% block librarian %}
+    <a href="{% url 'librarian' %}" class="navbar-brand">&nbsp;Home</a>
+{% endblock %}
+{% block add_book %}
+<a href="{%url 'add_book' %}" class="navbar-brand">&nbsp;Add book</a>
+{% endblock %}
+{% block profile %}
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-8">
+                {% for book in books%}
+                    <div class="col p-3 border bg-light">
+                        <a href="{% url 'details' book.id %}"><h4>{{book.book_title}}</h4></a>
+                        <h6>{{book.author}}</h6>
+                        <a href="{% url 'edit' book.book_title %}" class="btn-primary btn-sm">Edit</a>
+                        <a href="{% url 'delete' book.book_title %}" class="btn-danger btn-sm">Delete</a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-4">
+                <h3>Borrow request</h3>
+                {% for borrow in borrows %}
+                <div class="col p-3 border bg-light">
+                    <h5>
+                        <a href="{% url 'profile' borrow.borrower.username %}">{{borrow.borrower.username}}</a>
+                        <p>{{borrow.book.book_title}}</p>
+                        <a href="{% url 'updatestatus' borrow.id %}"><h5>Update Status</h5></a>
+                    </h5>
+                </div>    
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

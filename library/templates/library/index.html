@@ -1,0 +1,16 @@
+{% extends 'library/navbar.html' %}
+
+{% block content %}
+    <div class="container-fluid">
+    <div class="col-8">
+        <div class="rows">
+            {% for book in books %}
+                <div class="col p-3 border bg-light">
+                    <a href="{% url 'details' book.id %}"><h4>{{book.book_title}}</h4></a>
+                    <p>-{{book.author}}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+{% endblock %}
