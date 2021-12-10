@@ -1,18 +1,39 @@
-<div>    
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Login as User</title>
+    <style>
+        #main {
+            height: 45vh;
+            width: 30vw;
+            margin-left: 35vw;
+            margin-top: 30vh;
+            display: flex;
+            align-items: center;
+            padding: 20px 20px;
+        }
+
+        body {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<div class="d-flex flex-column bd-highlight mb-3 shadow p-3 mb-5 bg-body rounded border bg-white" id="main">
     <form action="" method="post">
         {% csrf_token %}
-        <input type="text" name="username" id="username" placeholder="Username"><br>
-        <input type="password" name="password" id="password" placeholder="password"><br> 
-        <input type="submit" value="login">
+        <input type="text" class="form-control" name="username" id="username" placeholder="Username"><br>
+        <input type="password" class="form-control" name="password" id="password" placeholder="password"><br>
+        <input class="btn btn-primary" type="submit" value="login">
     </form>
     {%for message in messages%}
-       <p>{{message}}</p>
+    <p>{{message}}</p>
     {%endfor%}
     {% block login %}
-    
-    
+
+
     <p>don't have account <a href="{%url 'signup' %}">Sign up</a></p>
-    {% endblock %}    
+    {% endblock %}
 
 </div>
-
